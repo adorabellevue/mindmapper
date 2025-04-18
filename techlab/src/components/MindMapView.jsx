@@ -40,16 +40,11 @@ function MindMapInner({ jsonTree }) {
     const container = wrapperRef.current;
     if (!container) return;
   
-    const node = container.querySelector(".react-flow"); // ⬅️ This is the exportable canvas
+    const node = container.querySelector(".react-flow");
     if (!node) {
       console.error("🛑 Could not find .react-flow element");
       return;
     }
-  
-    const style = {
-      width: node.scrollWidth + "px",
-      height: node.scrollHeight + "px",
-    };
   
     try {
       const imageFunc = type === "png" ? toPng : toSvg;
