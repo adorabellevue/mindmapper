@@ -16,7 +16,7 @@ export async function POST(req) {
   });
 
   const result = await geminiRes.json();
-  console.log("Gemini response:", result);
+  console.log("📤 Extracted .text content:", result?.candidates?.[0]?.content?.parts?.[0]?.text);
 
   const output =
     result?.candidates?.[0]?.content?.parts?.[0]?.text || "No response from Gemini.";
