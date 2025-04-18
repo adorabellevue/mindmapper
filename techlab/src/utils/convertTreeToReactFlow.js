@@ -13,6 +13,7 @@ export function convertTreeToReactFlow(tree, startX = 0, startY = 0, levelGap = 
       id,
       data: { label: node.name },
       position: { x, y },
+      draggable: true,
     });
 
     if (parentId) {
