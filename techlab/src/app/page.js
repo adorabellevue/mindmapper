@@ -10,7 +10,7 @@ export default function Home() {
   const [history, setHistory] = useState([]);
 
   const handleSubmit = async (userInput) => {
-    const res = await fetch("/api/gemini", {
+    const res = await fetch("/gemini", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt: userInput }),
