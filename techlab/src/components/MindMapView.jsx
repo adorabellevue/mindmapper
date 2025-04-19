@@ -1,13 +1,6 @@
 "use client";
 
-import ReactFlow, {
-  Background,
-  Controls,
-  useNodesState,
-  useEdgesState,
-  addEdge,
-  ReactFlowProvider,
-} from "reactflow";
+import ReactFlow, { Background, Controls, useNodesState, useEdgesState, addEdge, ReactFlowProvider } from "reactflow";
 import { useMemo, useCallback, useRef, useState } from "react";
 import { convertTreeToReactFlow } from "@/utils/convertTreeToReactFlow";
 import { toPng, toSvg } from "html-to-image";
@@ -40,16 +33,7 @@ function MindMapInner({ jsonTree }) {
     const container = wrapperRef.current;
     if (!container) return;
   
-    const node = container.querySelector(".react-flow"); // ⬅️ This is the exportable canvas
-    if (!node) {
-      console.error("🛑 Could not find .react-flow element");
-      return;
-    }
-  
-    const style = {
-      width: node.scrollWidth + "px",
-      height: node.scrollHeight + "px",
-    };
+    const node = container.querySelector(".react-flow");
   
     try {
       const imageFunc = type === "png" ? toPng : toSvg;
