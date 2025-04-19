@@ -32,7 +32,9 @@ export default function Sidebar({ history, setHistory, onSelect, selectedIndex }
               key={i}
               onClick={() => onSelect(item, i)}
               className={`p-2 rounded text-sm flex justify-between items-start cursor-pointer hover:bg-gray-100 ${
-                i === selectedIndex ? "bg-gray-400 border border-blue-300" : "bg-slate-100"
+                i === selectedIndex 
+                  ? "bg-[oklch(0.75_0.05_310)] border border-[oklch(0.3_0.02_280)]"
+                  : "bg-[oklch(1_0.01_280)]"
               }`}
             >
               {/* Text content for the history item */}
