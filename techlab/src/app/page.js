@@ -10,6 +10,7 @@ export default function Home() {
   const [response, setResponse] = useState("");
   const [history, setHistory] = useState([]);
   const [jsonTree, setJsonTree] = useState(null);
+  const [status, setStatus] = useState("idle");
 
   const handleSubmit = async (userInput) => {
     const diagramPrompt = `
@@ -41,11 +42,8 @@ export default function Home() {
       return;
     }
 
-    // setResponse(result); // show raw JSON as text
-
     // Sanitize result before parsing
-    let cleaned = result.trim().replace(/^```json\n/, "").replace(/```$/, "").trim();
-    console.log("🧹 Cleaned JSON string:", cleaned);
+    const cleaned = result.trim().replace(/^```json\n/, "").replace(/```$/, "").trim();
 
     // Parse Gemini output as JSON
     let parsed = null;
@@ -53,9 +51,11 @@ export default function Home() {
       parsed = JSON.parse(cleaned);
       console.log("✅ Parsed JSON tree:", parsed);
       setJsonTree(parsed); // pass to mind map
+      setStatus("done");
     } catch (e) {
       console.warn("❌ Failed to parse JSON:", e);
       setJsonTree(null);
+      setStatus("error");
     }
 
     // Save to localStorage
@@ -68,14 +68,18 @@ export default function Home() {
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("gemini-history") || "[]");
     setHistory(stored);
+    setStatus("idle");
   }, []);
 
   return (
     <div className="flex">
       <Sidebar history={history} setHistory={setHistory} />
       <main className="flex-1 p-6 max-w-3xl">
-        <InputBox onSubmit={handleSubmit} />
-        <ResponseView response={response} />
+        <InputBox onSubmit={handleSubmit} onStartRequest={() => {
+          setStatus("loading");
+          setResponse(""); // clear old response
+        }} />
+        <ResponseView response={response} status={status} />
         {jsonTree && console.log("🌳 Ready to render MindMapView:", jsonTree)}
         {jsonTree && <MindMapView jsonTree={jsonTree} />}
       </main>
