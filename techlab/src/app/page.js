@@ -74,7 +74,7 @@ export default function Home() {
   return (
     <div className="flex">
       <Sidebar history={history} setHistory={setHistory} />
-      <main className="flex-1 p-6 max-w-3xl">
+      <main className="flex-1 p-6 max-w-screen-lg mx-auto">
         <InputBox onSubmit={handleSubmit} onStartRequest={() => {
           setStatus("loading");
           setResponse(""); // clear old response
