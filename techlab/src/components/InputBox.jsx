@@ -3,11 +3,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-export default function InputBox({ onSubmit }) {
+export default function InputBox({ onSubmit, onStartRequest }) {
   const [input, setInput] = useState("");
 
   const handleClick = () => {
     if (input.trim() === "") return;
+    onStartRequest();
     onSubmit(input);     // send input to parent
     setInput("");        // clear the input box
   };
