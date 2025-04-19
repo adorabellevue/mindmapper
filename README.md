@@ -4,11 +4,11 @@ A minimal, interactive web app that turns your natural language prompts into vis
 
 ## ✨ Features
 
-💬 **Natural Language Input** – Type anything you'd like to visualize
-🧠 **AI-Powered Diagram Generation** – Your ideas are automatically organized into a clean visual hierarchy
-🌳 **Interactive and Customizable Mind Maps** – Drag to reposition nodes and pan around your ideas with ease
-📤 **Export Options** – Save your mind map as a high-quality PNG or SVG
-🕓 **History Sidebar** – View and reopen your past prompts
+- 💬 **Natural Language Input** – Type anything you'd like to visualize  
+- 🧠 **AI-Powered Diagram Generation** – Your ideas are automatically organized into a clean visual hierarchy  
+- 🌳 **Interactive and Customizable Mind Maps** – Drag to reposition nodes and pan around your ideas with ease  
+- 📤 **Export Options** – Save your mind map as a high-quality PNG or SVG  
+- 🕓 **History Sidebar** – View and reopen your past prompts  
 
 ## 🚀 Getting Started
 
