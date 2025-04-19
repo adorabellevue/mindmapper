@@ -17,7 +17,7 @@ export default function InputBox({ onSubmit, onStartRequest }) {
     <div className="flex items-center gap-2">
       <input
         type="text"
-        placeholder="My goals are to improve my health, learn to cook, and travel to Japan and Italy..."
+        placeholder="Break down Newton’s three laws of motion with real-world examples..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
         className="border px-3 py-2 h-12 rounded w-full"
