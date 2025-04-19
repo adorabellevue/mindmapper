@@ -20,7 +20,7 @@ export default function Sidebar({ history, setHistory, onSelect, selectedIndex }
   return (
     <aside className="w-64 border-r p-4 h-screen overflow-y-auto">
       {/* Sidebar Header */}
-      <h2 className="font-bold text-lg mb-4">History</h2>
+      <h2 className="font-bold text-lg mb-4">Recent Entries</h2>
       {/* History Items */}
       {items.length === 0 ? (
         <p className="text-gray-500">No history yet.</p>
@@ -31,8 +31,8 @@ export default function Sidebar({ history, setHistory, onSelect, selectedIndex }
             <li
               key={i}
               onClick={() => onSelect(item, i)}
-              className={`p-2 rounded text-sm flex justify-between items-start cursor-pointer hover:bg-gray-200 ${
-                i === selectedIndex ? "bg-blue-100 border border-blue-300" : "bg-gray-100"
+              className={`p-2 rounded text-sm flex justify-between items-start cursor-pointer hover:bg-gray-100 ${
+                i === selectedIndex ? "bg-gray-400 border border-blue-300" : "bg-slate-100"
               }`}
             >
               {/* Text content for the history item */}
@@ -44,7 +44,7 @@ export default function Sidebar({ history, setHistory, onSelect, selectedIndex }
               </div>
               {/* Delete button for this entry */}
               <button
-                className="text-red-500 text-xs ml-2"
+                className="text-red-600 text-m ml-1"
                 onClick={(e) => { deleteItem(i) }}
               >
                 ✕

@@ -14,8 +14,8 @@ export default function ResponseView({ response, status }) {
   }
 
   return (
-    <div className="mt-6 p-4 border rounded">
-      <p className={`whitespace-pre-wrap ${status !== "done" ? "text-gray-500 italic" : ""}`}>
+    <div className="mt-3 p-4">
+      <p className={`whitespace-pre-wrap ${status !== "done" ? "text-gray-800 italic" : ""}`}>
         {displayText}
       </p>
     </div>
