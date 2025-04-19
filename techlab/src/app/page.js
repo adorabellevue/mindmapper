@@ -11,6 +11,7 @@ export default function Home() {
   const [history, setHistory] = useState([]);
   const [jsonTree, setJsonTree] = useState(null);
   const [status, setStatus] = useState("idle");
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const handleSubmit = async (userInput) => {
     const diagramPrompt = `
@@ -73,14 +74,35 @@ export default function Home() {
 
   return (
     <div className="flex">
-      <Sidebar history={history} setHistory={setHistory} />
+      <Sidebar 
+        history={history}
+        setHistory={setHistory}
+        selectedIndex={selectedIndex}
+        setSelectedIndex={setSelectedIndex}
+        onSelect={(item, index) => {
+          try {
+            const parsed = JSON.parse(
+              item.response.trim().replace(/^```json\n/, "").replace(/```$/, "").trim()
+            );
+            setJsonTree(parsed);
+            setResponse(item.response);
+            setStatus("done");
+            setSelectedIndex(index);
+          } catch (e) {
+            console.warn("❌ Failed to parse saved JSON:", e);
+            setJsonTree(null);
+            setStatus("error");
+          }
+        }}
+      />
       <main className="flex-1 p-6 max-w-screen-lg mx-auto">
         <InputBox onSubmit={handleSubmit} onStartRequest={() => {
           setStatus("loading");
           setResponse(""); // clear old response
         }} />
+        {/* Status messages */}
         <ResponseView response={response} status={status} />
-        {jsonTree && console.log("🌳 Ready to render MindMapView:", jsonTree)}
+        {/* Mind map appears once JSON tree is parsed */}
         {jsonTree && <MindMapView jsonTree={jsonTree} />}
       </main>
     </div>
