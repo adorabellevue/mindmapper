@@ -78,13 +78,15 @@ export default function Home() {
         setHistory={setHistory}
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
+        // When past entry is selected
         onSelect={(item, index) => {
           try {
             const parsed = JSON.parse(
               item.response.trim().replace(/^```json\n/, "").replace(/```$/, "").trim()
             );
-            setJsonTree(parsed);
-            setResponse(item.response);
+            setJsonTree(parsed); // Renders new diagram
+            setResponse(item.prompt); // Shows user prompt
+            // setResponse(item.response); // Shows raw response (JSON code)
             setStatus("done");
             setSelectedIndex(index);
           } catch (e) {
