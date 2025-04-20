@@ -48,8 +48,7 @@ export default function Home() {
 
     // Parse Gemini output as JSON
     try {
-      let parsed = JSON.parse(cleaned);
-      console.log("✅ Parsed JSON tree:", parsed);
+      const parsed = JSON.parse(cleaned);
       setJsonTree(parsed); // pass to mind map
       setStatus("done");
     } catch (e) {
