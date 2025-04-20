@@ -10,7 +10,7 @@ export default function InputBox({ onSubmit, onStartRequest }) {
     if (input.trim() === "") return;
     onStartRequest();
     onSubmit(input);     // send input to parent
-    setInput("");        // clear the input box
+    // setInput("");        // clear the input box
   };
 
   return (

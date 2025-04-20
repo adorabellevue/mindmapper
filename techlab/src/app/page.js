@@ -47,9 +47,8 @@ export default function Home() {
     const cleaned = result.trim().replace(/^```json\n/, "").replace(/```$/, "").trim();
 
     // Parse Gemini output as JSON
-    let parsed = null;
     try {
-      parsed = JSON.parse(cleaned);
+      let parsed = JSON.parse(cleaned);
       console.log("✅ Parsed JSON tree:", parsed);
       setJsonTree(parsed); // pass to mind map
       setStatus("done");
@@ -103,7 +102,11 @@ export default function Home() {
         {/* Status messages */}
         <ResponseView response={response} status={status} />
         {/* Mind map appears once JSON tree is parsed */}
-        {jsonTree && <MindMapView jsonTree={jsonTree} />}
+        {jsonTree && (
+          <div className="p-4 rounded-lg bg-white shadow-md flex-1 overflow-auto">
+            <MindMapView key={JSON.stringify(jsonTree)} jsonTree={jsonTree} />
+          </div>
+        )}
       </main>
     </div>
   );
