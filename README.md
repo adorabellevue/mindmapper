@@ -1,6 +1,6 @@
 # 💬 Text-to-MindMap 💬
 
-A minimal, interactive web app that turns your natural language prompts into visual **mind maps** using Gemini AI. Built with **Next.js** and **React Flow**.
+A minimal, interactive web app that turns natural language prompts into visual and interactive **mind maps** using Gemini AI. Built with **Next.js** and **React Flow**.
 
 ## ✨ Features
 
@@ -25,3 +25,7 @@ npm install
 
 # Run the development server
 npm run dev
+
+# Open http://localhost:3000 with your browser to see the result.
+
+![mindmapper](https://github.com/user-attachments/assets/27fbb7ac-243a-4bc1-af66-bb2dc56f0d50)
