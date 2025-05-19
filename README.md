@@ -3,7 +3,7 @@
 A minimal, interactive web app that turns natural language prompts into visual, interactive mind maps using Gemini AI.  
 Built with Next.js and React Flow.
 
-## ✨ Features
+## Features
 
 - **Natural Language Input** – Type anything you'd like to visualize  
 - **AI-Powered Diagram Generation** – Your ideas are automatically organized into a clean visual hierarchy  
@@ -11,7 +11,7 @@ Built with Next.js and React Flow.
 - **Export Options** – Download your mind map as a PNG or SVG  
 - **History Sidebar** – View and reopen your past diagrams
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone the repo:
 ```pwsh
